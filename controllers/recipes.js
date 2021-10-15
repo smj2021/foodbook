@@ -15,6 +15,15 @@ function create(req, res) {
     })
 }
 
+function index(req, res) {
+    Recipe.find({}, function (err, recipes) {
+        res.render('recipes/,', {
+            recipes,
+            title: 'All Recipes'
+        })
+    })
+}
+
 export {
     newRecipe as new,
     create

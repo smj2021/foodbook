@@ -26,5 +26,6 @@ function index(req, res) {
 
 export {
     newRecipe as new,
-    create
+    create,
+    index
 }

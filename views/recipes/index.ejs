@@ -1,8 +1,43 @@
 <%- include('./partials/html-head') %>
     <%- include('./partials/nav') %>
 
-
-
-
+        <main>
+            <h1>What's Cookin?</h1>
+            <table id="list">
+                <thead>
+                    <tr>
+                        <th>Recipe Image</th>
+                        <th>Name</th>
+                        <th>Prep Challenge</th>
+                        <th>Creation Date</th>
+                    </tr>
+                </thead>
+                <% if(recipes.length> 0){ %>
+                    <tbody>
+                        <% recipes.forEach((recipe)=> { %>
+                            <tr>
+                                <td>
+                                    <%= recipe.imageURL %>
+                                </td>
+                                <td>
+                                    <%= recipe.name%>
+                                </td>
+                                <td>
+                                    <%= recipe.difficulty %>
+                                </td>
+                                <td>
+                                    <%= recipe.createdAt() %>
+                                </td>
+                                <td><a href="/recipes/<%= recipe._id %>">DETAILS</a></td>
+                            </tr>
+                            <% }) %>
+                                <% } %>
+                    </tbody>
+            </table>
+        </main>
 
         <%- include('./partials/footer') %>
+
+
+
+            <%- include('./partials/footer') %>

@@ -6,7 +6,6 @@ const profileSchema = new Schema({
   name: String,
   avatar: String,
   aboutMe: String,
-
 }, {
   timestamps: true
 })

@@ -1,5 +1,5 @@
-<%- include('../partials/html-head') %>
-    <%- include('../partials/nav') %>
+<%- include('./../partials/html-head') %>
+    <%- include('./../partials/nav') %>
 
         <main>
             <h1>
@@ -19,10 +19,10 @@
                 </div>
                 <ul>
                     <%- recipe.notes.map(n=>
-                        `<li>${n.notes}</li>`).join('') %>
+                        `<li>${n.content}</li>`).join('') %>
                 </ul>
             </section>
         </main>
 
 
-        <%- include('../partials/footer') %>
+        <%- include('./../partials/footer') %>

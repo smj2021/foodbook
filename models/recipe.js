@@ -22,7 +22,7 @@ const recipeSchema = new Schema({
         default: Date(),
         required: true,
     },
-    recipeNotes: [{
+    notes: [{
         type: Schema.Types.ObjectId,
         ref: "Notes",
     }],

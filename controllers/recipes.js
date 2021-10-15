@@ -26,11 +26,12 @@ function index(req, res) {
 
 
 function show(req, res) {
-    Recipe.findById(req.params.id, function (err, recipe) {
-        res.render('recipes/show', {
-            title: 'Recipe Details',
-            recipe,
-            recipeNotes: recipeNotes,
+    Recipe.findById(req.params.id).populate('notes').exec(function (err, recipe) {
+        Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
+            res.render('recipes/new', {
+                recipe,
+                notes: notes,
+            })
         })
     })
 }

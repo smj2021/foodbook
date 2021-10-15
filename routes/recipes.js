@@ -7,9 +7,9 @@ router.get('/', recipesCtrl.index);
 
 router.get('/new', recipesCtrl.new);
 
-router.get(':id', recipesCtrl.show);
-
 router.post('/', recipesCtrl.create);
+
+router.get(':id', recipesCtrl.show);
 
 router.post(':id/notes', recipesCtrl.addNote);
 

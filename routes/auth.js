@@ -2,7 +2,7 @@ import { Router } from 'express'
 import passport from 'passport'
 
 
-const router = Router()
+const router = Router();
 
 router.get(
   '/google',

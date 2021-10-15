@@ -11,7 +11,7 @@ router.post('/', recipesCtrl.create);
 
 router.get('/:id', recipesCtrl.show);
 
-// router.post(':id/notes', recipesCtrl.addNote);
+router.post(':id/notes', recipesCtrl.addNote);
 
 export {
     router

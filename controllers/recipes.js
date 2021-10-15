@@ -36,9 +36,14 @@ function show(req, res) {
     })
 }
 
+function addNote(req, res) {
+
+}
+
 export {
     newRecipe as new,
     create,
     index,
-    show
+    show,
+    addNote
 }

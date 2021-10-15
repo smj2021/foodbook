@@ -1,8 +1,28 @@
-<%- include('./partials/html-head') %>
-    <%- include('./partials/nav') %>
+<%- include('../partials/html-head') %>
+    <%- include('../partials/nav') %>
+
+        <main>
+            <h1>
+                <%= title %>
+            </h1>
+            <section>
+                <div>
+                    <%= recipe.imageURL %>
+                </div>
+                <div>Name:<%= recipe.name %>
+                </div>
+                <div>Cuisine: <%= recipe.cuisine %>
+                </div>
+                <div>Difficulty: <%= recipe.difficulty %>
+                </div>
+                <div>CreatedOn: <%= recipe.createdOn %>
+                </div>
+                <ul>
+                    <%- recipe.notes.map(n=>
+                        `<li>${n.notes}</li>`).join('') %>
+                </ul>
+            </section>
+        </main>
 
 
-
-
-
-    <%- include('./partials/footer') %>
+        <%- include('../partials/footer') %>

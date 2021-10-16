@@ -27,6 +27,22 @@ function show(req, res) {
         })
 }
 
+function edit(req, res) {
+    Profile.findById(req.params.id)
+        .then(function (profile) {
+            res.render('profiles/edit', {
+                title: `Editing ${profile.name}'s profile`,
+                profile
+            })
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+}
+
 export {
-    show
+    index,
+    show,
+    edit
 }

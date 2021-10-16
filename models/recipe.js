@@ -19,7 +19,7 @@ const recipeSchema = new Schema({
     },
     createdOn: {
         type: Date,
-        default: Date(),
+        default: Date.now(),
         required: true,
     },
     notes: [{

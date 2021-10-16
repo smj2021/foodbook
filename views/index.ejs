@@ -1,6 +1,14 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
+<nav>
+  <a href="/">Home</a>
+  <a href="/recipes/new">Add Recipe</a>
+  <a href="/recipes">Recipes</a>
+  <a href="/users/profile">My Profile</a>
+  <a href="/users">Fellow Foodies</a>
+</nav>
+
 <main>
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.avatar) { %>

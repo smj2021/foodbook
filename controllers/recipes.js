@@ -2,8 +2,12 @@ import { Recipe } from '../models/recipe.js';
 import { Note } from '../models/note.js'
 
 function newRecipe(req, res) {
+    const newRecipe = new Recipe();
+    const created = newRecipe.createdOn;
+    const createDate = created.toLocaleString();
     res.render('recipes/new', {
         title: 'New Recipe',
+        createDate,
     })
 }
 

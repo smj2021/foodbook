@@ -3,9 +3,9 @@ import * as recipesCtrl from '../controllers/recipes.js'
 
 const router = Router();
 
-router.get('/', isLoggedIn, recipesCtrl.index);
-
 router.get('/new', isLoggedIn, recipesCtrl.new);
+
+router.get('/', isLoggedIn, recipesCtrl.index);
 
 router.get('/:id', isLoggedIn, recipesCtrl.show);
 

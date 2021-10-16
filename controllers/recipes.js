@@ -2,7 +2,7 @@ import { Recipe } from '../models/recipe.js';
 import { Note } from '../models/note.js'
 
 function newRecipe(req, res) {
-    res.render('/recipes/new', {
+    res.render('recipes/new', {
         title: 'New Recipe',
     })
 }
@@ -19,7 +19,8 @@ function index(req, res) {
     Recipe.find({}, function (err, recipes) {
         res.render('recipes/index', {
             recipes,
-            title: 'All Recipes'
+            title: 'All Recipes',
+            // user: req.user,
         })
     })
 }

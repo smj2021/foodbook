@@ -10,23 +10,37 @@
 </head>
 
 <body>
-    <h1>
-        <% title %>
-    </h1>
+    <main>
+        <div class="container">
+            <div>
+                <% profiles.forEach(function(profile){ %>
+                    <div>
+                        <a href="/profiles/<%= profile._id %>">
+                            <div>
+                                <% if (profile.avatar) { %>
+                                    <img
+                                    src="<%= profile.avatar %>" 
+                                    alt="<%= profile.name%>'s avatar">
 
-    <% profiles.forEach(function(profile){ %>
+                                   <% } %>
+                            </div>
 
 
 
 
-        
-    })
-<div class="container">
+
+
+                        </a>
+                    </div>
 
 
 
-</div>
 
+                    })
+
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>

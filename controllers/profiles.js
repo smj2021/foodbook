@@ -41,8 +41,20 @@ function edit(req, res) {
         })
 }
 
+function update(req, res) {
+    Profile.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(function (profile) {
+            res.redirect(`/profiles/${profile._id}`)
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+}
+
 export {
     index,
     show,
-    edit
+    edit,
+    update
 }

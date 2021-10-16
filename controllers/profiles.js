@@ -1,5 +1,14 @@
-import { Profile } from '../models/prfile.js'
+import { Profile } from '../models/profile.js'
 
+function index(req, res) {
+    Profile.find({})
+        .then(function (profiles) {
+            res.render('profiles/index', {
+                title: 'Fellow Foodies',
+                profiles,
+            })
+        })
+}
 
 function show(req, res) {
     Profile.findById(req.params.id)

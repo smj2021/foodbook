@@ -13,7 +13,8 @@ function index(req, res) {
 function show(req, res) {
     Profile.findById(req.params.id)
         .then(function (profile) {
-            Profile.findById(req.user.profile).then(function (userProfile) {
+            Profile.findById(req.user.profile)
+            .then(function (userProfile) {
                 res.render('profiles/show', {
                     title: `${profile.name}'s profile`,
                     profile,

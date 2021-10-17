@@ -11,9 +11,9 @@ router.get('/:id', isLoggedIn, recipesCtrl.show);
 
 router.post('/', isLoggedIn, recipesCtrl.create);
 
-router.post(':id/notes', isLoggedIn, recipesCtrl.addNote);
+router.post('/:id/notes', isLoggedIn, recipesCtrl.addNote);
 
-router.delete('/recipes/:id', isLoggedIn, recipesCtrl.delete);
+//router.delete('/recipes/:id', isLoggedIn, recipesCtrl.delete);
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();

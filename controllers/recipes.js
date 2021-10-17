@@ -51,6 +51,10 @@ function addNote(req, res) {
     })
 }
 
+// function deleteRecipe (req, res) {
+//     Recipe.findById(req.params.id, {
+
+//     })
 
 export {
     newRecipe as new,

@@ -2,7 +2,7 @@ import { Note } from '../models/note.js'
 
 function newNote(req, res) {
     Note.find({}, function (err, notes) {
-        res.render('notes/new', {
+        res.render('recipe/', {
             title: 'Add Note',
             notes,
         })
@@ -11,7 +11,7 @@ function newNote(req, res) {
 
 function create(req, res) {
     Note.create(req.body, function (err, note) {
-        res.redirect('/notes')
+        res.redirect('/recipes/')
     })
 }
 

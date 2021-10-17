@@ -6,6 +6,13 @@
     <body>
       <nav>
         <% if (user) { %>
+          <i class=""></i>
+          <a href="/" <%- title==="Welcome to Project Food Book" ? 'class="active"' : '' %>
+            >Home</a>
+          <a href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
+            >In the Kitchen</a>
+          <a href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add Recipe</a>
+          <a href="/profiles/users" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
           <a href="/auth/logout">
             <button type="submit">Logout</button>
           </a>

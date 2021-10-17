@@ -1,28 +1,43 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
+        <main>
+            <h1>
+                <%= title %>
+            </h1>
+            <section>
+                <div>
+                    <%= recipe.imageURL %>
+                </div>
+                <div>Name:<%= recipe.name %>
+                </div>
+                <div>Cuisine: <%= recipe.cuisine %>
+                </div>
+                <div>Difficulty: <%= recipe.difficulty %>
+                </div>
+                <div>CreatedOn: <%= recipe.createdOn %>
+                </div>
+            </section>
+            <h2>Notes:</h2>
+            <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
+                <div>
+                    <input type="text" name="note" id="note-input" placeholder="Enter a New Note Here">
+                </div>
+                <button type="submit">Add Note</button>
+            </form>
 
-<main>
-    <h1>
-        <%= title %>
-    </h1>
-    <section>
-        <div>
-            <%= recipe.imageURL %>
-        </div>
-        <div>Name:<%= recipe.name %>
-        </div>
-        <div>Cuisine: <%= recipe.cuisine %>
-        </div>
-        <div>Difficulty: <%= recipe.difficulty %>
-        </div>
-        <div>CreatedOn: <%= recipe.createdOn %>
-        </div>
-        <div>Notes:</div>
-        <ul>
-            <%- recipe.notes.map(n=>
-                `<li>${n.content}</li>`).join('') %>
-        </ul>
-    </section>
-</main>
-    <%- include('./../partials/footer') %>
+            <% if(recipe.notes.length) { %>
+                <table>
+                    <thead>
+                        <tr> > </tr>
+                    </thead>
+                    <tbody>
+                        <% recipe.notes.forEach(function(note){ %>
+
+                            <% }) %>
+                    </tbody>
+                </table>
+
+                <% } %>
+        </main>
+        <%- include('./../partials/footer') %>

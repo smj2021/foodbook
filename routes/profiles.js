@@ -10,7 +10,6 @@ router.get('/:id', isLoggedIn, profilesCtrl.show);
 router.get('/:id/edit', isLoggedIn, profilesCtrl.edit);
 router.put('/:id/', isLoggedIn, profilesCtrl.update);
 
-
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect("/auth/google");

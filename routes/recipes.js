@@ -11,6 +11,11 @@ router.get('/:id', isLoggedIn, recipesCtrl.show);
 
 router.post('/', isLoggedIn, recipesCtrl.create);
 
+router.get('/:id/edit', isLoggedIn, recipesCtrl.edit);
+
+router.put('/:id/', isLoggedIn, recipesCtrl.update);
+
+
 router.post('/:id/notes', isLoggedIn, recipesCtrl.addNote);
 
 //router.delete('/recipes/:id', isLoggedIn, recipesCtrl.delete);

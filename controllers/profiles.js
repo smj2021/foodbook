@@ -4,7 +4,7 @@ function index(req, res) {
     Profile.find({})
         .then(function (profiles) {
             res.render('profiles/index', {
-                title: 'Fellow Foodies',
+                title: 'Foodies',
                 profiles,
             })
         })

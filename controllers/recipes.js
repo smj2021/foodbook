@@ -6,7 +6,7 @@ function newRecipe(req, res) {
     const created = newRecipe.createdOn;
     const createDate = created.toLocaleString();
     res.render('recipes/new', {
-        title: 'New Recipe',
+        title: "What's Cookin?",
         createDate,
     })
 }
@@ -23,7 +23,7 @@ function index(req, res) {
     Recipe.find({}, function (err, recipes) {
         res.render('recipes/index', {
             recipes,
-            title: 'All Recipes',
+            title: "In the Kitchen",
             // user: req.user,
         })
     })
@@ -34,7 +34,7 @@ function show(req, res) {
     Recipe.findById(req.params.id).populate('notes').exec(function (err, recipe) {
         Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
             res.render('recipes/show', {
-                title: 'Recipe Details',
+                title: "Chef's Secrets!",
                 recipe,
                 notes: notes,
             })
@@ -43,16 +43,16 @@ function show(req, res) {
 }
 
 function addNote(req, res) {
-    console.log(req.body)
-    console.log(req.params.id)
+    console.log(req.body) //remove before deploy
+    console.log(req.params.id) //remove before deploy
     Recipe.findById(req.params.id, function (err, recipe) {
         Note.create({
             content: req.body.note,
-        }, function(err, note){
-            console.log('note:', note)
+        }, function (err, note) {
+            console.log('note:', note) //remove before deploy
             recipe.notes.push(note._id)
             recipe.save(function (err) {
-                console.log('err', err)
+                console.log('err', err) //remove before deploy
                 res.redirect(`/recipes/${recipe._id}`)
             })
         })

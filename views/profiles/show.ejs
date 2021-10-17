@@ -1,7 +1,51 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-<h1>User Profile</h1>
+        <h1>
+            <%+ title %>
+        </h1>
+
+        <ectio>
+            <section>
+                <% if(profile.avatar) { %>
+                    <img class="" src="<%= profile.avatar %>" alt="<%= profile.name%>'s avatar">
 
 
-    <%- include('./../partials/footer') %>
+                    <img src="/images/icons/user.png" alt="<%= profile.name%>'s avatar" alt="placeholder">
+                    <% } %>
+                        <h1>
+                            <%= profile.name %>
+                        </h1>
+                        <div class="container">
+                            <table class="table">
+                                <tbody>
+                                    <% if(user.profile._id.toString()===profile._id.toString()) { %>
+                                        <tr>
+                                            <td>Google Email:</td>
+                                            <td>
+                                                <%= user.email %>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                            <tr>
+                                                <td>Name:</td>
+                                                <td>
+                                                    <%= profile.name %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Avatar URL:</td>
+                                                <td><a href="<%= profile.avatar %>">
+                                                        <%= profile.avatar.substring(0,35) %>
+                                                            <% if(profile.avatar.length>35) { %>
+                                                                ... <% } %>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                </tbody>
+                            </table>
+                        </div>
+            </section>
+            </main>
+
+            <%- include('./../partials/footer') %>

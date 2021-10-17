@@ -2,13 +2,20 @@
     <%- include('./../partials/nav') %>
 
         <main>
-            <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-                <div>
-                    <label for="name-input" class="form-label"></label>
-                    <input type="text">
-                </div>
-                <div><label for="" class="class"></label></div>+input
-            </form>
+            <div>
+                <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+                    <div>
+                        <label for="name-input" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name-input" name="name"
+                            value="<%= profile.name %> ">
+                    </div>
+                    <div>
+                        <label for="avatar-input" class="form-label">Avatar</label>
+                        <input type="text" class="form-control" id="avatar-input" name="avatar"
+                            value="<%= profile.avatar %> ">
+                    </div>
+                </form>
+            </div>
         </main>
 
 

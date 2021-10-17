@@ -59,18 +59,30 @@ function addNote(req, res) {
     })
 }
 
-function edit(req, res){
+function edit(req, res) {
     Recipe.findById(req.params.id)
-    .then(function(recipe){
-        res.render('recipes/edit', {
-            title: `Editing ${recipe.name}`,
-            recipe
+        .then(function (recipe) {
+            res.render('recipes/edit', {
+                title: `Editing ${recipe.name}`,
+                recipe
+            })
         })
-    })
-    .catch(function(err){
-        console.log(err)
-        res.redirect('/')
-    })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+}
+
+function update(req, res) {
+    Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(function (recipe) {
+            res.redirect(`/recipes/${recipe._id}`)
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+
 }
 
 // function deleteRecipe (req, res) {
@@ -83,5 +95,7 @@ export {
     create,
     index,
     show,
-    addNote
+    addNote,
+    edit,
+    update
 }

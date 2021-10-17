@@ -43,10 +43,18 @@ function show(req, res) {
 }
 
 function addNote(req, res) {
+    console.log(req.body)
+    console.log(req.params.id)
     Recipe.findById(req.params.id, function (err, recipe) {
-        recipe.notes.push(req.body.noteId)
-        recipe.save(function (err) {
-            res.redirect(`/recipes/${recipe._id}`)
+        Note.create({
+            content: req.body.note,
+        }, function(err, note){
+            console.log('note:', note)
+            recipe.notes.push(note._id)
+            recipe.save(function (err) {
+                console.log('err', err)
+                res.redirect(`/recipes/${recipe._id}`)
+            })
         })
     })
 }

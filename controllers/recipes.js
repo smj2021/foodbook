@@ -74,7 +74,7 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    Recipe.findByIdAndUpdate(req.params.id, req.body)
         .then(function (recipe) {
             res.redirect(`/recipes/${recipe._id}`)
         })
@@ -82,13 +82,22 @@ function update(req, res) {
             console.log(err)
             res.redirect('/')
         })
-
 }
 
-// function deleteRecipe (req, res) {
-//     Recipe.findById(req.params.id, {
-
-//     })
+function delRecipe(req, res) {
+    Recipe.findById(req.params.id)
+        .then(function (recipe) {
+            recipe.remove({ _id: req.params.id })
+            recipe.save()
+                .then(function () {
+                    res.redirect('/recipes/index')
+                })
+        })
+        .catch(function (err) {
+            comsole.log(err)
+            res.redirect('/')
+        })
+}
 
 export {
     newRecipe as new,
@@ -97,5 +106,6 @@ export {
     show,
     addNote,
     edit,
-    update
+    update,
+    delRecipe as delete
 }

@@ -11,7 +11,7 @@ function newNote(req, res) {
 
 function create(req, res) {
     Note.create(req.body, function (err, note) {
-        res.redirect('/recipes/')
+        res.redirect('/recipes/:id')
     })
 }
 

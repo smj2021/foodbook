@@ -4,10 +4,6 @@ const Schema = mongoose.Schema;
 
 const notesSchema = new Schema({
     content: String,
-    recipe: [{
-        type: Schema.Types.ObjectId,
-        ref: "Recipe"
-    }],
 }, {
     timestamps: true,
 });

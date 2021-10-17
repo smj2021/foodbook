@@ -33,11 +33,17 @@
                     </thead>
                     <tbody>
                         <% recipe.notes.forEach(function(note){ %>
-
+                            <tr>
+                                <td>
+                                    <%= note.content %>
+                                </td>
+                            </tr>
                             <% }) %>
                     </tbody>
                 </table>
 
-                <% } %>
+                <% } else { %>
+                    <h3>No Notes Added Yet</h3>
+                    <% } %>
         </main>
         <%- include('./../partials/footer') %>

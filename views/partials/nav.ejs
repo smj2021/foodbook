@@ -12,7 +12,8 @@
           <a href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
             >In the Kitchen</a>
           <a href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add Recipe</a>
-          <a href="/profiles/users" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
+          <a href="/profiles/:id" <%=title==="Chef's Profile" ? 'class="active"' : '' %>>My Profile</a>
+          <a href="/profiles/" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
           <a href="/auth/logout">
             <button type="submit">Logout</button>
           </a>

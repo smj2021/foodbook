@@ -45,6 +45,12 @@
                                 </tbody>
                             </table>
                         </div>
+                        <%# edit profile ui %>
+                        <% if(user.proflie._id.toString()===profile._id.toString()) { %>
+                            <a class="btn btn-warning" role="button" href="/profiles/<%= profile._id %>/edit ">Edit Your Profile!</a>
+                            <a class="btn btn-danger" role="button" href="/auth/logout">Logout</a>
+                            <%}%>
+
             </section>
             </main>
 

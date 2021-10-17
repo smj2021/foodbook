@@ -1,7 +1,15 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
+        <main>
+            <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+                <div>
+                    <label for="name-input" class="form-label"></label>
+                    <input type="text">
+                </div>
+                <div><label for="" class="class"></label></div>+input
+            </form>
+        </main>
 
 
-
-    <%- include('./../partials/footer') %>
+        <%- include('./../partials/footer') %>

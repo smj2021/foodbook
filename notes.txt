@@ -11,3 +11,20 @@
                         </form>
                     </div>
 </td>
+
+//Note delete/edit
+<td>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=PUT" class="update-form" method="PUT">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+</td>
+
+
+//Convert difficulty to ingredients list. Move createdOn toward top of list. Merge notes into 

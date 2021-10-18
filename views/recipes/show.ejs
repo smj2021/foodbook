@@ -6,60 +6,59 @@
                 <%= title %>
             </h1>
             <section>
-                <div>
-                    <%= recipe.imageURL %>
-                </div>
-                <div>Name:<%= recipe.name %>
-                </div>
-                <div>Cuisine: <%= recipe.cuisine %>
-                </div>
-                <div>Difficulty: <%= recipe.difficulty %>
-                </div>
-                <div>CreatedOn: <%= recipe.createdOn %>
-                </div>
+                <form action="/recipes/<%= recipe._id %>/edit?_method=PUT" class="update-form" method="PUT">
+                    <button type="submit">Edit</button>
+                </form>
+                <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">Delete</button>
+                    <div>
+                        <%= recipe.imageURL %>
+                    </div>
+                    <div>Name:<%= recipe.name %>
+                    </div>
+                    <div>Cuisine: <%= recipe.cuisine %>
+                    </div>
+                    <div>Difficulty: <%= recipe.difficulty %>
+                    </div>
+                    <div>CreatedOn: <%= recipe.createdOn %>
+                    </div>
+                    <div>
+                        Ingredients: <%= recipe.ingredients %>
+                    </div>
+                    <div>
+                        <h3>Cooking Instructions:</h3>
+                    </div>
+                    <% if(recipe.notes.length) { %>
+                        <table>
+                            <thead>
+                            </thead>
+                            <tbody>
+                                <% recipe.notes.forEach(function(note){ %>
+                                    <tr>
+                                        <td>
+                                            <%= note.content %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+
+                        <% } else { %>
+                            <h3>No Notes Added Yet</h3>
+                            <% } %>
+            </section>
+            <section>
+                <h3>Add Notes:</h3>
+                <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
+                    <div>
+                        <textarea type="text" name="note" id="note-input"
+                            placeholder="Enter a New Note Here"></textarea>
+                    </div>
+                    <button type="submit">Add Note</button>
+                </form>
             </section>
 
-            <td>
-                <div>
-                    <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                </div>
-                <div>
-                    <form action="/recipes/<%= recipe._id %>/edit?_method=PUT" class="update-form" method="PUT">
-                        <button type="submit">Update</button>
-                    </form>
-                </div>
-            </td>
 
 
-
-
-            <h2>Notes:</h2>
-            <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
-                <div>
-                    <input type="text" name="note" id="note-input" placeholder="Enter a New Note Here">
-                </div>
-                <button type="submit">Add Note</button>
-            </form>
-
-            <% if(recipe.notes.length) { %>
-                <table>
-                    <thead>
-                    </thead>
-                    <tbody>
-                        <% recipe.notes.forEach(function(note){ %>
-                            <tr>
-                                <td>
-                                    <%= note.content %>
-                                </td>
-                            </tr>
-                            <% }) %>
-                    </tbody>
-                </table>
-
-                <% } else { %>
-                    <h3>No Notes Added Yet</h3>
-                    <% } %>
         </main>
         <%- include('./../partials/footer') %>

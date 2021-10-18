@@ -64,7 +64,7 @@ function edit(req, res) {
         .then(function (recipe) {
             res.render('recipes/edit', {
                 title: `Editing ${recipe.name}`,
-                recipe
+                recipe,
             })
         })
         .catch(function (err) {

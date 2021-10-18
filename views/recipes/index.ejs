@@ -28,7 +28,7 @@
                                     <%= recipe.difficulty %>
                                 </td>
                                 <td>
-                                    <%= recipe.createdOn %>
+                                    <%= recipe.createdOn.toLocaleString() %>
                                 </td>
                                 <td><a href="/recipes/<%= recipe._id %>">DETAILS</a></td>
                             </tr>

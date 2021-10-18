@@ -2,37 +2,41 @@
     <%- include('./../partials/nav') %>
 
 
-<main>
-    <h1>
-        <%= title %>
-    </h1>
-    <form id="new-form" action="/recipes" method="POST">
-        <div>
-            <label for="name-input">Recipe Name:</label>
-            <input type="text" name="name" id="name-input">
-        </div>
-        <div>
-            <label for="cuisine-input">Cuisine:
-            </label>
-            <input type="text" name="cuisine" id="cuisine-input">
-        </div>
-        <div>
-            <label for="difficulty-input">Difficulty:</label>
-            <select name="difficulty" id>
-                <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
-                <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
-                <option value="Bobby Flay (Hard)">Bobby Flay(Hard)</option>
-                <option value="Gordon Ramsay (Advanced)">Gordon Ramsay(Advanced)</option>
-            </select>
-            <div>
-                <label for="createdOn">Creation Date: <%= createDate %></label>
-                
-            </div>
-            <button type="submit">Add Recipe</button>
-        </div>
-    </form>
+        <main>
+            <h1>
+                <%= title %>
+            </h1>
+            <form id="new-form" action="/recipes" method="POST">
+                <div>
+                    <label for="name-input">Recipe Name:</label>
+                    <input type="text" name="name" id="name-input">
+                </div>
+                <div>
+                    <label for="cuisine-input">Cuisine:
+                    </label>
+                    <input type="text" name="cuisine" id="cuisine-input">
+                </div>
+                <div>
+                    <label for="difficulty-input">Difficulty:</label>
+                    <select name="difficulty" id>
+                        <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
+                        <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
+                        <option value="Bobby Flay (Hard)">Bobby Flay(Hard)</option>
+                        <option value="Gordon Ramsay (Advanced)">Gordon Ramsay(Advanced)</option>
+                    </select>
+                    <div>
+                        <label for="ingredients-input">Ingredients:</label>
+                        <textarea type="text" name="ingredients" id="ingredients-input"></textarea>
+                    </div>
+                    <div>
+                        <label for="createdOn">Creation Date: <%= createDate %></label>
+
+                    </div>
+                    <button type="submit">Add Recipe</button>
+                </div>
+            </form>
 
 
-</main>
+        </main>
 
-    <%- include('./../partials/footer') %>
+        <%- include('./../partials/footer') %>

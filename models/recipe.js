@@ -11,7 +11,9 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
     },
-    imageURL: String,
+    imageURL: {
+        type: String,
+    },
     difficulty: {
         type: String,
         enum: ['Jamie Oliver (Easy)', 'Guy Fieri (Medium)', 'Bobby Flay (Hard)', 'Gordon Ramsay (Advanced)'],
@@ -22,6 +24,10 @@ const recipeSchema = new Schema({
         default: Date(),
         required: true,
     },
+    ingredients: [{
+        type: String,
+
+    }],
     notes: [{
         type: Schema.Types.ObjectId,
         ref: 'Note',

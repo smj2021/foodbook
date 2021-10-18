@@ -32,7 +32,7 @@ function edit(req, res) {
 function update(req, res) {
     Note.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (note) {
-            res.redirect(`/notes/${note._id}`)
+            res.redirect(`/recipes/${recipe._id}`)
         })
         .catch(function (err) {
             console.log(err)
@@ -41,9 +41,9 @@ function update(req, res) {
 }
 
 function delNote(req, res) {
-    Recipe.findByIdAndDelete(req.params.id)
+    Note.findByIdAndDelete(req.params.id)
         .then(function (note) {
-            res.redirect('/notes')
+            res.redirect(`/recipes/${recipe._id}`)
         })
         .catch(function (err) {
             comsole.log(err)

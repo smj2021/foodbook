@@ -1,0 +1,19 @@
+<%- include('./../partials/html-head') %>
+    <%- include('./../partials/nav') %>
+
+        <main>
+            <h1>
+                <% title %>
+            </h1>
+            <div>
+                <form class="container" action="/notes/<%= note._id %>?_method=PUT" method="POST">
+                    <div>
+                        <label for="content-input" class="form-label">Content</label>
+                        <textarea type="text" class="form-control" id="content-input" name="name"
+                            placeholder="Edit your note here" value="<%= note.content %> "></textarea>
+                        <button type="submit">Update</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <%- include('./../partials/footer') %>

@@ -40,9 +40,21 @@ function update(req, res) {
         })
 }
 
+function delNote(req, res) {
+    Recipe.findByIdAndDelete(req.params.id)
+        .then(function (note) {
+            res.redirect('/notes')
+        })
+        .catch(function (err) {
+            comsole.log(err)
+            res.redirect('/')
+        })
+}
+
 export {
     newNote as new,
     create,
     edit,
-    update
+    update,
+    delNote as delete
 }

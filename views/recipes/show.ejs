@@ -20,7 +20,7 @@
                     </div>
                     <div>Difficulty: <%= recipe.difficulty %>
                     </div>
-                    <div>CreatedOn: <%= recipe.createdOn %>
+                    <div>CreatedOn: <%= recipe.createdOn.toLocaleString() %>
                     </div>
                     <div>
                         Ingredients: <%= recipe.ingredients %>
@@ -44,11 +44,11 @@
                         </table>
 
                         <% } else { %>
-                            <h3>No Notes Added Yet</h3>
+                            <h3>No Steps Added Yet!</h3>
                             <% } %>
             </section>
             <section>
-                <h3>Add Notes:</h3>
+                <h3>Add Cooking Instructions:</h3>
                 <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
                     <div>
                         <textarea type="text" name="note" id="note-input"

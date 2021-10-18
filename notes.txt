@@ -1,0 +1,13 @@
+// Possible html functions to update and delete recipes. Need to figure out how to get them working for notes as well.
+<td>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=PUT" class="update-form" method="PUT">
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+</td>

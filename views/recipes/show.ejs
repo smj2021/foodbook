@@ -19,6 +19,22 @@
                 </div>
             </section>
 
+            <td>
+                <div>
+                    <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+                <div>
+                    <form action="/recipes/<%= recipe._id %>/edit?_method=PUT" class="update-form" method="PUT">
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
+            </td>
+
+
+
+
             <h2>Notes:</h2>
             <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
                 <div>

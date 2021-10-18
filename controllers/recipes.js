@@ -74,7 +74,7 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-    Recipe.findByIdAndUpdate(req.params.id, req.body)
+    Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (recipe) {
             res.redirect(`/recipes/${recipe._id}`)
         })
@@ -85,13 +85,9 @@ function update(req, res) {
 }
 
 function delRecipe(req, res) {
-    Recipe.findById(req.params.id)
+    Recipe.findByIdAndDelete(req.params.id)
         .then(function (recipe) {
-            recipe.remove({ _id: req.params.id })
-            recipe.save()
-                .then(function () {
-                    res.redirect('/recipes/index')
-                })
+            res.redirect('/recipes')
         })
         .catch(function (err) {
             comsole.log(err)

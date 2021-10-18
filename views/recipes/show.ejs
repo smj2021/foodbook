@@ -17,7 +17,17 @@
                 </div>
                 <div>CreatedOn: <%= recipe.createdOn %>
                 </div>
+                <td>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
+                            <button type="submit">Delete</button>
+                    </div>
+                    <div>
+                        <form action="/recipes/<%= recipe._id %>?_method=PUT" class="update-form" method="PUT">
+                            <button type="submit">Update</button>
+                    </div>
             </section>
+
             <h2>Notes:</h2>
             <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
                 <div>

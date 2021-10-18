@@ -15,7 +15,34 @@ function create(req, res) {
     })
 }
 
+function edit(req, res) {
+    Note.findById(req.params.id)
+        .then(function (note) {
+            res.render('notes/edit', {
+                title: `Editing ${note.content}`,
+                note,
+            })
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+}
+
+function update(req, res) {
+    Note.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(function (note) {
+            res.redirect(`/notes/${note._id}`)
+        })
+        .catch(function (err) {
+            console.log(err)
+            res.redirect('/')
+        })
+}
+
 export {
     newNote as new,
-    create
+    create,
+    edit,
+    update
 }

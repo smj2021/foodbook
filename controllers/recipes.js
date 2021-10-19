@@ -33,6 +33,9 @@ function index(req, res) {
 function show(req, res) {
     Recipe.findById(req.params.id).populate('notes').exec(function (err, recipe) {
         Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
+            if(err){
+                console.log(err)
+            }
             res.render('recipes/show', {
                 title: "Chef's Secrets!",
                 recipe,

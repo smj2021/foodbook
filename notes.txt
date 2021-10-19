@@ -28,3 +28,6 @@
 
 
 //Convert difficulty to ingredients list. Move createdOn toward top of list. Merge notes into 
+
+
+/notes/<%= note._id %>/edit/<%= recipe._id %>

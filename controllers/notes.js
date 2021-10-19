@@ -1,4 +1,5 @@
 import { Note } from '../models/note.js'
+import { Recipe } from '../models/recipe.js'
 
 function newNote(req, res) {
     Note.find({}, function (err, notes) {
@@ -21,6 +22,7 @@ function edit(req, res) {
             res.render('notes/edit', {
                 title: `Editing ${note.content}`,
                 note,
+                recipeId: req.params.recipeId
             })
         })
         .catch(function (err) {
@@ -32,21 +34,25 @@ function edit(req, res) {
 function update(req, res) {
     Note.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (note) {
-            res.redirect(`/recipes/${recipe._id}`)
+            console.log(note)
+            res.redirect(`/recipes/${req.params.recipeId}`)
         })
-        .catch(function (err) {
-            console.log(err)
-            res.redirect('/')
+        .catch(function (error) {
+            res.render('error', {
+                message: 'notes update method failed',
+                error
+            })
         })
 }
 
 function delNote(req, res) {
     Note.findByIdAndDelete(req.params.id)
         .then(function (note) {
-            res.redirect(`/recipes/${recipe._id}`)
+            console.log(note)
+            res.redirect(`/recipes/${req.params.recipeId}`)
         })
         .catch(function (err) {
-            comsole.log(err)
+            console.log(err)
             res.redirect('/')
         })
 }

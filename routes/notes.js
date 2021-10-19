@@ -5,9 +5,9 @@ const router = Router();
 
 router.get('/new', isLoggedIn, notesCtrl.new);
 router.post('/', isLoggedIn, notesCtrl.create);
-router.get('/:id/edit', isLoggedIn, notesCtrl.edit);
-router.put('/:id/', isLoggedIn, notesCtrl.update);
-router.delete('/:id', isLoggedIn, notesCtrl.delete);
+router.get('/:id/edit/:recipeId', isLoggedIn, notesCtrl.edit);
+router.put('/:id/:recipeId', isLoggedIn, notesCtrl.update);
+router.delete('/:id/:recipeId', isLoggedIn, notesCtrl.delete);
 
 
 function isLoggedIn(req, res, next) {

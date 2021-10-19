@@ -40,11 +40,12 @@
                                         <%= note.content %>
                                     </td>
                                     <td>
-                                        <form action="/notes/<%= note._id %>/edit?_method=PUT" class="update-form"
+                                        <form action="/notes/<%= note._id %>/edit/<%= recipe._id %>?_method=PUT" class="update-form"
                                             method="PUT">
+                                            <input type="hidden" name="editId" value="<%= recipe._id %> ">
                                             <button type="submit">Edit</button>
                                         </form>
-                                        <form action="/notes/<%= note._id %>?_method=DELETE" class="delete-form"
+                                        <form action="/notes/<%= note._id %>/<%= recipe._id %>?_method=DELETE" class="delete-form"
                                             method="POST">
                                             <button type="submit">Delete</button>
                                         </form>

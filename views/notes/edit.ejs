@@ -6,12 +6,14 @@
                 <% title %>
             </h1>
             <div>
-                <form class="container" action="/notes/<%= note._id %>?_method=PUT" method="POST">
+                <form class="container" action="/notes/<%= note._id %>/<%= recipeId %>?_method=PUT" method="POST">
                     <div>
                         <label for="content-input" class="form-label">Content</label>
-                        <textarea type="text" class="form-control" id="content-input" name="name"
+                        <textarea type="text" class="form-control" id="content-input" name="content"
                             placeholder="Edit your note here" value="<%= note.content %> "></textarea>
-                        <button type="submit">Update</button>
+                        
+                            <button type="submit">Update</button>
+                    
                     </div>
                 </form>
             </div>

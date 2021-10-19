@@ -1,6 +1,6 @@
 <%- include('./partials/html-head') %>
   <%- include('./partials/nav') %>
-
+<div class="container">
     <main>
       <h1>Hello, <%= user ? user.profile.name : "friend" %>
       </h1>
@@ -10,5 +10,5 @@
         </div>
         <% } %>
     </main>
-
+</div>
     <%- include('./partials/footer') %>

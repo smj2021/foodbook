@@ -4,24 +4,42 @@
     </head>
 
     <body>
-      <nav>
-        <% if (user) { %>
-          <i class=""></i>
-          <a href="/" <%- title==="Welcome to Project Food Book" ? 'class="active"' : '' %>
-            >Home</a>
-          <a href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
-            >In the Kitchen</a>
-          <a href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add Recipe</a>
-          <a href="/profiles/<%= user.profile._id %>  " <%=title==="Chef's Profile" ? 'class="active"' : '' %>>My Profile</a>
-          <a href="/profiles/" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
-          <a href="/auth/logout">
-            <button type="submit">Logout</button>
-          </a>
-          <% } else { %>
-            <a href="/auth/google" class="siwg-link">
-              <button type="submit" class="siwg">
-                <img id="siwg-image" alt="Sign in with Google" />
-              </button>
-            </a>
-            <% } %>
+      <nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light shadow p-3 mb-5 bg-white rounded">
+        <div class="container-fluid">
+          <div id="nav-label">
+            <a class="navbar-brand" href="/">
+              <img src="/images/ChefHatUtensils.jpg" alt="Responsive image" class="img-fluid">
+              Chef's Corner</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse justify-content-end collapse show" id="navbarTogglerDemo01" style>
+            <ul class="navbar-nav" id="nav-list">
+
+              <% if (user) { %>
+                <i class=""></i>
+                <a class="nav-link" href="/" <%- title==="Welcome to Project Food Book" ? 'class="active"' : '' %>
+                  >Home</a>
+                <a class="nav-link" href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
+                  >In the Kitchen</a>
+                <a class="nav-link" href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add
+                  Recipe</a>
+                <a class="nav-link" href="/profiles/<%= user.profile._id %>  " <%=title==="Chef's Profile"
+                  ? 'class="active"' : '' %>>My
+                  Profile</a>
+                <a class="nav-link" href="/profiles/" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
+                <a class="nav-link" href="/auth/logout">
+                  <button type="submit">Logout</button>
+                </a>
+                <% } else { %>
+                  <a href="/auth/google" class="siwg-link">
+                    <button type="submit" class="siwg">
+                      <img id="siwg-image" alt="Sign in with Google" />
+                    </button>
+                  </a>
+                  <% } %>
+          </div>
+        </div>
       </nav>

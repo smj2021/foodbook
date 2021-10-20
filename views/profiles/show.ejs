@@ -7,8 +7,8 @@
             </h1>
         </header>
 
-        <main>
-            <section class="showprofile">
+        <div class="mx-auto">
+            <div class="showprofile">
                 <% if(profile.avatar) { %>
                     <img class="" src="<%= profile.avatar %>" alt="">
                     <% } %>
@@ -17,10 +17,10 @@
                         </h1>
                         <div class="container">
                             <table class="table">
-                                <tbody>
+                                <tbody style="font-size:20px">
                                     <% if(user.profile._id.toString()===profile._id.toString()) { %>
                                         <tr>
-                                            <td>Google Email:</td>
+                                            <td class="">Google Email:</td>
                                             <td>
                                                 <%= user.email %>
                                             </td>
@@ -46,11 +46,11 @@
                         </div>
                         <%# edit profile ui %>
                             <% if(user.profile._id.toString()===profile._id.toString()) { %>
-                                <a class="btn btn-warning" role="button" href="/profiles/<%= profile._id %>/edit ">Edit
+                                <a class="btn btn-primary" role="button" href="/profiles/<%= profile._id %>/edit ">Edit
                                     Your Profile!</a>
                                 <a class="btn btn-danger" role="button" href="/auth/logout">Logout</a>
                                 <%}%>
-            </section>
-        </main>
+            </div>
+        </div>
 
         <%- include('./../partials/footer') %>

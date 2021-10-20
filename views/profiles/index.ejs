@@ -2,32 +2,34 @@
     <%- include('./../partials/nav') %>
 
 
-<header>
-    <h1><%= title %></h1>
-</header>
-        <main>
-                <div class="foodies">
-                    <% profiles.forEach(function(profile){ %>
-                        <div>
-                            <a href="/profiles/<%= profile._id %>">
-                                <div>
-                                    <% if (profile.avatar) { %>
-                                        <img src="<%= profile.avatar %>" alt="<%= profile.name%>'s avatar" />
+        <header>
+            <h1>
+                <%= title %>
+            </h1>
+        </header>
+        <div class="row row-cols-3 row-cols-md-4 row-cols-lg-4 row-cols-xl-4 g1 px-4">
+            <% profiles.forEach(function(profile){ %>
+                <div class="col">
+                    <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+                        <div class="card mb-4">
+                            <% if (profile.avatar) { %>
+                                <img class="card-img-top" width="100%" src="<%= profile.avatar %>"
+                                    alt="<%= profile.name%>'s avatar" />
 
-                                        <% } else { %>
-                                            <img src="/images/icons/user.png" alt="placeholder" />
-                                            <% } %>
-                                                <div class="body">
-                                                    <p class="title">
-                                                        <%= profile.name %>
-                                                    </p>
-                                                </div>
-                                </div>
-                            </a>
+                                <% } else { %>
+                                    <img src="/images/icons/user.png" alt="placeholder" />
+                                    <% } %>
+                                        <div class="body">
+                                            <p class="title">
+                                                <%= profile.name %>
+                                            </p>
+                                        </div>
                         </div>
-                        <% }) %>
+                    </a>
                 </div>
-        </main>
+                <% }) %>
+        </div>
+
 
 
         <%- include('./../partials/footer') %>

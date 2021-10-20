@@ -8,8 +8,8 @@
         <div class="container-fluid">
           <div id="nav-label">
             <a class="navbar-brand" href="/">
-              <img src="/images/ChefHatUtensils.jpg" alt="Responsive image" class="img-fluid">
-              Chef's Corner</a>
+              <img height="auto" width="40px" src="/images/ChefHatUtensils.jpg" alt="" class="img-fluid">Chef's
+              Corner</a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="true" aria-label="Toggle navigation">
@@ -20,25 +20,33 @@
 
               <% if (user) { %>
                 <i class=""></i>
-                <a class="nav-link" href="/" <%- title==="Welcome to Project Food Book" ? 'class="active"' : '' %>
-                  >Home</a>
-                <a class="nav-link" href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
-                  >In the Kitchen</a>
-                <a class="nav-link" href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add
-                  Recipe</a>
-                <a class="nav-link" href="/profiles/<%= user.profile._id %>  " <%=title==="Chef's Profile"
-                  ? 'class="active"' : '' %>>My
-                  Profile</a>
-                <a class="nav-link" href="/profiles/" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
-                <a class="nav-link" href="/auth/logout">
-                  <button type="submit">Logout</button>
-                </a>
+                <li class="nav-item">
+                  <a class="nav-link" href="/" <%- title==="Welcome to Project Food Book" ? 'class="active"' : '' %>
+                    >Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/recipes" <%- title==="In the Kitchen" ? 'class="active"' : '' %>
+                    >In the Kitchen</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/recipes/new" <%=title==="What's Cookin?" ? 'class="active"' : '' %>>Add
+                    Recipe</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profiles/<%= user.profile._id %>  " <%=title==="Chef's Profile"
+                    ? 'class="active"' : '' %>>My
+                    Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profiles/" <%=title==="Foodies" ? 'class="active"' : '' %>>Foodies</a>
+                </li>
+                <li id="nav-end" class="nav-item">
+                  <a class="nav-link" href="/auth/logout">Log Out, Chef!</a>
+                </li>
                 <% } else { %>
-                  <a href="/auth/google" class="siwg-link">
-                    <button type="submit" class="siwg">
-                      <img id="siwg-image" alt="Sign in with Google" />
-                    </button>
-                  </a>
+                  <li id="nav-end" class="nav-item">
+                    <a href="/auth/google" class="siwg-link">Login, Chef!</a>
+                  </li>
                   <% } %>
           </div>
         </div>

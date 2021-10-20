@@ -28,6 +28,11 @@ const recipeSchema = new Schema({
         type: String,
 
     }],
+    preptime: {
+        type: Number,
+        min: 1,
+        max: 90,
+    },
     notes: [{
         type: Schema.Types.ObjectId,
         ref: 'Note',

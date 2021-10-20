@@ -27,6 +27,9 @@
                     Ingredients: <%= recipe.ingredients %>
                 </div>
                 <div>
+                    Prep Time: <%= recipe.preptime %>
+                </div>
+                <div>
                     <h3>Cooking Instructions:</h3>
                 </div>
                 <% if(recipe.notes.length) { %>
@@ -40,13 +43,13 @@
                                         <%= note.content %>
                                     </td>
                                     <td>
-                                        <form action="/notes/<%= note._id %>/edit/<%= recipe._id %>?_method=PUT" class="update-form"
-                                            method="PUT">
+                                        <form action="/notes/<%= note._id %>/edit/<%= recipe._id %>?_method=PUT"
+                                            class="update-form" method="PUT">
                                             <input type="hidden" name="editId" value="<%= recipe._id %> ">
                                             <button type="submit">Edit</button>
                                         </form>
-                                        <form action="/notes/<%= note._id %>/<%= recipe._id %>?_method=DELETE" class="delete-form"
-                                            method="POST">
+                                        <form action="/notes/<%= note._id %>/<%= recipe._id %>?_method=DELETE"
+                                            class="delete-form" method="POST">
                                             <button type="submit">Delete</button>
                                         </form>
                                     </td>

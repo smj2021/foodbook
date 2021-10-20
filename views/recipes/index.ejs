@@ -1,53 +1,50 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-        <main>
+        <main id="recipe-index">
             <h1>
                 <%= title %>
             </h1>
             <table id="list">
-                <thead>
-                    <tr>
-                        <th>Recipe Image</th>
-                        <th>Name</th>
-                        <th>Prep Challenge</th>
-                        <th>Creation Date</th>
-                    </tr>
-                </thead>
                 <% if(recipes.length> 0){ %>
-                    <tbody>
-                        <% recipes.forEach((recipe)=> { %>  
-                            <tr>
-                                <td>
-                                    <%= recipe.imageURL %>
-                                </td>
-                                <td>
-                                    <%= recipe.name%>
-                                </td>
-                                <td>
-                                    <%= recipe.difficulty %>
-                                </td>
-                                <td>
-                                    <%= recipe.createdOn.toLocaleString() %>
-                                </td>
-                                <td><a href="/recipes/<%= recipe._id %>">DETAILS</a></td>
-                            </tr>
-                            <% }) %>
-                                <% } %>
-                    </tbody>
+
+                    <div class="container">
+                        <% recipes.forEach((recipe)=> { %>
+                            <div class="card" style="width: 18rem;">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= recipe.name%>
+                                    </h5>
+                                    <h5 class="card-title">
+                                        <%= recipe.cuisine %>
+                                    </h5>
+                                    <h5 class="card-title">
+                                        <%= recipe.difficulty %>
+                                    </h5>
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        <%= recipe.preptime %>
+                                    </p>
+                                    <a href="/recipes/<%= recipe._id %>" class="btn btn-primary">DETAILS</a>
+
+                                </div>
+
+                                <% }) %>
+                                    <% } %>
+                            </div>
+                    </div>
             </table>
         </main>
 
-<div>
 
 
 
 
 
 
-    
-</div>
 
+        
 
 
 

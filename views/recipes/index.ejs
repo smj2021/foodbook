@@ -1,11 +1,15 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-        <main id="recipe-index">
+        <header>
             <h1>
                 <%= title %>
             </h1>
-            <table id="list">
+        </header>
+
+
+        <main class="recipe-index">
+            <section class="recipelist">
                 <% if(recipes.length> 0){ %>
 
                     <div class="container">
@@ -34,7 +38,7 @@
                                     <% } %>
                             </div>
                     </div>
-            </table>
+            </section>
         </main>
 
 
@@ -44,7 +48,7 @@
 
 
 
-        
+
 
 
 

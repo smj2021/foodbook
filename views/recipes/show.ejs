@@ -1,11 +1,14 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-        <main>
+        <header>
             <h1>
                 <%= title %>
             </h1>
-            <section>
+        </header>
+
+        <main>
+            <section class="showid">
                 <form action="/recipes/<%= recipe._id %>/edit?_method=PUT" class="update-form" method="PUT">
                     <button type="submit">Edit</button>
                 </form>

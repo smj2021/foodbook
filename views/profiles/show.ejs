@@ -1,17 +1,16 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-        <h1>
-            <%+ title %>
-        </h1>
+        <header>
+            <h1>
+                <%= title %>
+            </h1>
+        </header>
 
-        <ectio>
-            <section>
+        <main>
+            <section class="showprofile">
                 <% if(profile.avatar) { %>
-                    <img class="" src="<%= profile.avatar %>" alt="<%= profile.name%>'s avatar">
-
-
-                    <img src="/images/icons/user.png" alt="<%= profile.name%>'s avatar" alt="placeholder">
+                    <img class="" src="<%= profile.avatar %>" alt="">
                     <% } %>
                         <h1>
                             <%= profile.name %>
@@ -51,8 +50,7 @@
                                     Your Profile!</a>
                                 <a class="btn btn-danger" role="button" href="/auth/logout">Logout</a>
                                 <%}%>
-
             </section>
-            </main>
+        </main>
 
-            <%- include('./../partials/footer') %>
+        <%- include('./../partials/footer') %>

@@ -1,10 +1,12 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
+<header>
+    <h1>
+        <%= title %>
+    </h1>
+</header>
         <main>
-            <h1>
-                <% title %>
-            </h1>
             <div>
                 <form class="container" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
                     <div>

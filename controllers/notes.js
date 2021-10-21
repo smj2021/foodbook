@@ -1,6 +1,7 @@
 import { Note } from '../models/note.js'
 import { Recipe } from '../models/recipe.js'
 
+//Directs to recipes/:id to add new notes.
 function newNote(req, res) {
     Note.find({}, function (err, notes) {
         res.render('recipe/', {
@@ -10,12 +11,14 @@ function newNote(req, res) {
     })
 }
 
+//Creates the note with data payload and redirects after submit.
 function create(req, res) {
     Note.create(req.body, function (err, note) {
         res.redirect('/recipes/:id')
     })
 }
 
+//Directs to note editing form.
 function edit(req, res) {
     Note.findById(req.params.id)
         .then(function (note) {
@@ -31,6 +34,7 @@ function edit(req, res) {
         })
 }
 
+//Directs to note update action.
 function update(req, res) {
     Note.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (note) {
@@ -45,6 +49,7 @@ function update(req, res) {
         })
 }
 
+//Directs to note delete action.
 function delNote(req, res) {
     Note.findByIdAndDelete(req.params.id)
         .then(function (note) {

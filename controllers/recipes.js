@@ -1,6 +1,7 @@
 import { Recipe } from '../models/recipe.js';
 import { Note } from '../models/note.js'
 
+//Renders the add recipe form.
 function newRecipe(req, res) {
     const newRecipe = new Recipe();
     const created = newRecipe.createdOn;
@@ -11,6 +12,7 @@ function newRecipe(req, res) {
     })
 }
 
+//Sumbits the new recipe to the database.
 function create(req, res) {
     console.log(req.body)
     Recipe.create(req.body, function (err, recipe) {
@@ -19,6 +21,7 @@ function create(req, res) {
     })
 }
 
+//Renders the recipe index page for viewing all recipes.
 function index(req, res) {
     Recipe.find({}, function (err, recipes) {
         res.render('recipes/index', {
@@ -29,11 +32,11 @@ function index(req, res) {
     })
 }
 
-
+//Renders individual recipe characteristics.
 function show(req, res) {
     Recipe.findById(req.params.id).populate('notes').exec(function (err, recipe) {
         Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
-            if(err){
+            if (err) {
                 console.log(err)
             }
             res.render('recipes/show', {
@@ -45,6 +48,7 @@ function show(req, res) {
     })
 }
 
+//Enables user to add notes or instructions to an individual recipe.
 function addNote(req, res) {
     console.log(req.body) //remove before deploy
     console.log(req.params.id) //remove before deploy
@@ -62,6 +66,7 @@ function addNote(req, res) {
     })
 }
 
+//Renders the edit form.
 function edit(req, res) {
     Recipe.findById(req.params.id)
         .then(function (recipe) {
@@ -76,6 +81,7 @@ function edit(req, res) {
         })
 }
 
+//Submits the data payload when a user updates a recipe.
 function update(req, res) {
     Recipe.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (recipe) {
@@ -87,6 +93,7 @@ function update(req, res) {
         })
 }
 
+//Removes a recipe from the database.
 function delRecipe(req, res) {
     Recipe.findByIdAndDelete(req.params.id)
         .then(function (recipe) {

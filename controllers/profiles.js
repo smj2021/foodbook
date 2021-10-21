@@ -1,5 +1,6 @@
 import { Profile } from '../models/profile.js'
 
+//Renders the profile index page where you can see the user list.
 function index(req, res) {
     Profile.find({})
         .then(function (profiles) {
@@ -10,6 +11,7 @@ function index(req, res) {
         })
 }
 
+//Shows individual user profiles by profile._id when clicked.
 function show(req, res) {
     Profile.findById(req.params.id)
         .then(function (profile) {
@@ -28,6 +30,7 @@ function show(req, res) {
         })
 }
 
+//Allows editing of user profiles.
 function edit(req, res) {
     Profile.findById(req.params.id)
         .then(function (profile) {
@@ -42,6 +45,7 @@ function edit(req, res) {
         })
 }
 
+//Directs to update form for user profile.
 function update(req, res) {
     Profile.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (profile) {

@@ -14,13 +14,13 @@ function show(req, res) {
     Profile.findById(req.params.id)
         .then(function (profile) {
             Profile.findById(req.user.profile)
-            .then(function (userProfile) {
-                res.render('profiles/show', {
-                    title: `${profile.name}'s profile`,
-                    profile,
-                    userProfile,
+                .then(function (userProfile) {
+                    res.render('profiles/show', {
+                        title: `${profile.name}'s Profile`,
+                        profile,
+                        userProfile,
+                    })
                 })
-            })
         })
         .catch(function (err) {
             console.log(err)
@@ -32,7 +32,7 @@ function edit(req, res) {
     Profile.findById(req.params.id)
         .then(function (profile) {
             res.render('profiles/edit', {
-                title: `Editing ${profile.name}'s profile`,
+                title: `Editing ${profile.name}'s Profile`,
                 profile
             })
         })

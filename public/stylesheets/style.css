@@ -37,7 +37,7 @@ nav {
 }
 
 header{
-  padding: 25px 0 25px 0;
+  display: grid;
   text-align: center;
   font-size: 20px;
 }

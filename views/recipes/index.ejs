@@ -5,17 +5,19 @@
             <h1>
                 <%= title %>
             </h1>
+            <h3>Take a gander at your personal cookbook! If you haven't added any recipes go ahead and click Add Recipe
+                in the nav bar and get started!</h3>
         </header>
 
 
-        <main class="">
+        <main>
             <% if(recipes.length> 0){ %>
-                <div class="container py-5 px-3">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2 g1 px-4">
+                <div class="container px-5 ">
+                    <div class="container row row-cols-4 row-cols-md-4 row-cols-xl-4 g1 gx-auto">
                         <% recipes.forEach((recipe)=> { %>
-                            <div class="card mb-3" style="width:18rem;">
-                                <div class="row g-0">
-                                    <div class="">
+                            <div class="col-sm-5 col-md-4 col-lg-3 col-xl-2 mx-auto px-auto">
+                                <div class="card mb-5" style="width:20rem;">
+                                    <div>
                                         <div class="card-body">
                                             <h5 class="card-title">
                                                 <%= recipe.name%>

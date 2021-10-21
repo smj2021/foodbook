@@ -7,13 +7,13 @@
             </h1>
         </header>
 
-        <main>
-            <section class="showid">
+        <main class="container" style="text-align:center;font-size:20px;">
+            <section>
                 <form action="/recipes/<%= recipe._id %>/edit?_method=PUT" class="update-form" method="PUT">
-                    <button type="submit">Edit</button>
+                    <button class="btn btn-primary" type="submit">Edit</button>
                 </form>
                 <form action="/recipes/<%= recipe._id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit">Delete</button>
+                    <button class="btn btn-primary" type="submit">Delete</button>
                 </form>
                 <div>
                     <%= recipe.imageURL %>
@@ -30,7 +30,7 @@
                     Ingredients: <%= recipe.ingredients %>
                 </div>
                 <div>
-                    Prep Time: <%= recipe.preptime %>
+                    Prep Time: <%= recipe.preptime %> minutes
                 </div>
                 <div>
                     <h3>Cooking Instructions:</h3>
@@ -42,19 +42,19 @@
                         <tbody>
                             <% recipe.notes.forEach(function(note){ %>
                                 <tr>
-                                    <td>
+                                    <td class="container" style="text-align:center;font-size:20px">
                                         <%= note.content %>
+                                            <form action="/notes/<%= note._id %>/edit/<%= recipe._id %>?_method=PUT"
+                                                class="update-form" method="PUT">
+                                                <input type="hidden" name="editId" value="<%= recipe._id %> ">
+                                                <button class="btn btn-primary" type="submit">Edit</button>
+                                            </form>
+                                            <form action="/notes/<%= note._id %>/<%= recipe._id %>?_method=DELETE"
+                                                class="delete-form" method="POST">
+                                                <button class="btn btn-primary" type="submit">Delete</button>
+                                            </form>
                                     </td>
                                     <td>
-                                        <form action="/notes/<%= note._id %>/edit/<%= recipe._id %>?_method=PUT"
-                                            class="update-form" method="PUT">
-                                            <input type="hidden" name="editId" value="<%= recipe._id %> ">
-                                            <button type="submit">Edit</button>
-                                        </form>
-                                        <form action="/notes/<%= note._id %>/<%= recipe._id %>?_method=DELETE"
-                                            class="delete-form" method="POST">
-                                            <button type="submit">Delete</button>
-                                        </form>
                                     </td>
                                 </tr>
                                 <% }) %>
@@ -65,14 +65,14 @@
                         <h3>No Steps Added Yet!</h3>
                         <% } %>
             </section>
-            <section>
+            <section class="container" style="text-align:center;font-size:20px;">
                 <h3>Add Cooking Instructions:</h3>
                 <form id="add-note-form" action="/recipes/<%= recipe._id %>/notes" method="POST">
                     <div>
                         <textarea type="text" name="note" id="note-input"
                             placeholder="Enter a New Note Here"></textarea>
                     </div>
-                    <button type="submit">Add Note</button>
+                    <button class="btn btn-primary" type="submit">Add Note</button>
                 </form>
             </section>
 

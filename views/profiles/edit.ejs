@@ -1,23 +1,25 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-    <header>
-        <h1>
-            <%= title %>
-        </h1>
-    </header>
+        <header>
+            <h1>
+                <%= title %>
+            </h1>
+        </header>
         <main>
-            <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-                <div>
-                    <label for="name-input" class="form-label">Name</label>
+            <form class="container-sm" action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+                <div class="input-group input-group-lg mb-5">
+                    <label style="font-size:16px;" for="name-input" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name-input" name="name" value="<%= profile.name %> ">
                 </div>
-                <div>
-                    <label for="avatar-input" class="form-label">Avatar</label>
+                <div class="input-group input-group-lg">
+                    <label style="font-size:16px;" for="avatar-input" class="form-label">Avatar</label>
                     <input type="text" class="form-control" id="avatar-input" name="avatar"
                         value="<%= profile.avatar %> ">
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <div class="col text-center">
+                    <button style="text-align: center;" type="submit" class="btn btn-primary">Update</button>
+                </div>
             </form>
         </main>
 

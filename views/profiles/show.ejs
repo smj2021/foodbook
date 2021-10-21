@@ -8,7 +8,7 @@
         </header>
 
         <div class="mx-auto">
-            <div class="showprofile">
+            <div class="card" style="height:auto;width:400px">
                 <% if(profile.avatar) { %>
                     <img class="" src="<%= profile.avatar %>" alt="">
                     <% } %>
@@ -17,7 +17,7 @@
                         </h1>
                         <div class="container">
                             <table class="table">
-                                <tbody style="font-size:20px">
+                                <tbody style="font-size:16px">
                                     <% if(user.profile._id.toString()===profile._id.toString()) { %>
                                         <tr>
                                             <td class="">Google Email:</td>

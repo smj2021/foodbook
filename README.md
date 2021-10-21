@@ -4,7 +4,7 @@ Getting Started:
 
 Instructions: Login using your Google account, and start adding recipes to your cookbook! You can add notes, and identify recipe preparation difficulty with an easy-to-read drop down menu named for some of the best chefs in the world.
 
-
+![Getting Started](public/ReadMe/LandingPage.jpg)
 
 Stack used: Full-Stack; MEN (MongoDB, ExpressJS, Node.js)
 Additional technologies: HTML, CSS, Mongoose, Google Cloud, Google OAuth, Passport

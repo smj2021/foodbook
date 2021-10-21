@@ -6,40 +6,53 @@
                 <%= title %>
             </h1>
         </header>
-
-        <div class="mx-auto">
-            <form id="new-form" action="/recipes" method="POST">
-                <div class="" style="font-size:20px;">
-                    <div class="form-group">
-                        <label for="name-input">Recipe Name:</label>
-                        <input type="text" name="name" id="name-input">
+        <main class="mx-auto">
+            <div class="container">
+                <form class="form horizontal" id="new-form" action="/recipes" method="POST">
+                    <div class="form-group" style="font-size:20px;">
+                        <label class="control-label col-sm-12" for="name-input">Recipe Name:</label>
+                        <div class="col-sm-20">
+                            <input class="form-control" type="text" name="name" id="name-input">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="cuisine-input">Cuisine:
+                    <div class="form-group" style="font-size:20px;">
+                        <label class="control-label col-sm-2" for="cuisine-input">Cuisine:
                         </label>
-                        <input type="text" name="cuisine" id="cuisine-input">
-                    </div>
-                    <div class="form-group">
-                        <label for="difficulty-input">Difficulty:</label>
-                        <select name="difficulty" id>
-                            <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
-                            <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
-                            <option value="Bobby Flay (Hard)">Bobby Flay(Hard)</option>
-                            <option value="Gordon Ramsay (Advanced)">Gordon Ramsay(Advanced)</option>
-                        </select>
-                        <div class="form-group">
-                            <label for="ingredients-input">Ingredients:</label>
-                            <textarea type="text" name="ingredients" id="ingredients-input"></textarea>
+                        <div class="col-sm-20">
+                            <input class="form-control" type="text" name="cuisine" id="cuisine-input">
                         </div>
-                        <label for="preptime-input">Prep Time:</label>
-                        <input type="number" name="preptime" id="preptime-input" placeholder="Max 90 mins">
+                    </div>
+                    <div class="form-group" style="font-size:20px;">
+                        <label class="control-label col-sm-2" for="difficulty-input">Difficulty:</label>
+                        <div class="col-sm-20">
+                            <select class="form-control" name="difficulty" id>
+                                <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
+                                <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
+                                <option value="Bobby Flay (Hard)">Bobby Flay(Hard)</option>
+                                <option value="Gordon Ramsay (Advanced)">Gordon Ramsay(Advanced)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" style="font-size:20px;">
+                        <label class="control-label col-sm-2" for="ingredients-input">Ingredients:</label>
                         <div>
-                            <label for="createdOn">Creation Date: <%= createDate %></label>
-
+                            <textarea class="form-control" type="text" name="ingredients"
+                                id="ingredients-input"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Recipe</button>
                     </div>
-                    </divfor>
+                    <div class="form-group" style="font-size:20px;">
+                        <label for="preptime-input">Prep Time:</label>
+                        <input class="form-control" type="number" name="preptime" id="preptime-input"
+                            placeholder="Max 90 mins">
+                    </div>
+                    <div class="form-group" style="font-size:20px;">
+                        <label for="createdOn">Creation Date: <%= createDate %></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Recipe</button>
+            </div>
+
+            </div>
             </form>
-        </div>
+            </div>
+        </main>
         <%- include('./../partials/footer') %>

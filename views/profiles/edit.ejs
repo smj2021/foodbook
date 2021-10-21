@@ -7,20 +7,26 @@
             </h1>
         </header>
         <main class="mx-auto">
-            <form class="container-sm" action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
-                <div class="input-group input-group-lg mb-5">
-                    <label style="font-size:16px;" for="name-input" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name-input" name="name" value="<%= profile.name %> ">
-                </div>
-                <div class="input-group input-group-lg mb-5">
-                    <label style="font-size:16px;" for="avatar-input" class="form-label">Avatar</label>
-                    <input type="text" class="form-control" id="avatar-input" name="avatar"
-                        value="<%= profile.avatar %> ">
-                </div>
-                <div class="col text-center">
-                    <button style="text-align: center;" type="submit" class="btn btn-primary">Update</button>
-                </div>
-            </form>
+            <div class="container">
+                <form class="form-horizontal" action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label style="font-size:16px;" for="name-input" class="control-label col-sm-2">Name</label>
+                        <div class="col-sm-30"> <input type="text" class="form-control" id="name-input" name="name"
+                                value="<%= profile.name %> ">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-size:16px;" for="avatar-input" class="control-label col-sm-2">Avatar</label>
+                        <div class="col-sm-30">
+                            <input type="text" class="form-control" id="avatar-input" name="avatar"
+                                value="<%= profile.avatar %> ">
+                        </div>
+
+                        <div class="col text-center">
+                            <button style="text-align: center;" type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                </form>
+            </div>
         </main>
 
 

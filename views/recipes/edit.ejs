@@ -1,38 +1,52 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-        <header>
+        <header class="container mx-auto">
             <h1>
                 <%= title %>
             </h1>
         </header>
         <main class="mx-auto">
-            <div>
-                <form class="container-sm mx-auto" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
-                    <div>
-                        <label style="font-size:16px;" for="name-input" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name-input" name="name" value="<%= recipe.name %> ">
+            <div class="container">
+                <form class="form-horizontal" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label style="font-size:16px;" for="name-input" class="control-label col-sm-2">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name-input" name="name"
+                                value="<%= recipe.name %> ">
+                        </div>
                     </div>
-                    <div>
-                        <label style="font-size:16px;" for="cuisine-input" class="form-label">Cuisine</label>
-                        <input type="text" class="form-control" id="name-input" name="cuisine"
-                            value="<%= recipe.cuisine %>">
+                    <div class="form-group">
+                        <label style="font-size:16px;" for="cuisine-input"
+                            class="control-label col-sm-2">Cuisine</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name-input" name="cuisine"
+                                value="<%= recipe.cuisine %>">
+                        </div>
                     </div>
-                    <div>
-                        <label style="font-size:16px;" for="difficulty-input">Difficulty:</label>
-                        <select name="difficulty" id>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" style="font-size:16px;"
+                            for="difficulty-input">Difficulty:</label>
+                        <select class="col-sm-10" name="difficulty" id>
                             <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
                             <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
                             <option value="Bobby Flay (Hard)">Bobby Flay(Hard)</option>
                             <option value="Gordon Ramsay (Advanced)">Gordon Ramsay(Advanced)</option>
                         </select>
                     </div>
-                    <div>
-                        <label style="font-size:16px;" for="ingredients-input" class="form-label">Ingredients</label>
-                        <input type="text" class="form-control" id="ingredients-input" name="ingredients"
-                            value="<%= recipe.ingredients %>">
+                    <div class="form-group">
+                        <label style="font-size:16px;" for="ingredients-input"
+                            class="control-label col-sm-2">Ingredients</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="ingredients-input" name="ingredients"
+                                value="<%= recipe.ingredients %>">
+                        </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" class="">Update</button>
+                    <div>
+                        <div>
+                            <button class="btn btn-primary" type="submit" class="">Update</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </main>

@@ -1,25 +1,25 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
 
-<header>
-    <h1>
-        <%= title %>
-    </h1>
-</header>
-        <main>
+        <header>
+            <h1>
+                <%= title %>
+            </h1>
+        </header>
+        <main class="mx-auto">
             <div>
-                <form class="container" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+                <form class="container-sm mx-auto" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
                     <div>
-                        <label for="name-input" class="form-label">Name</label>
+                        <label style="font-size:16px;" for="name-input" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name-input" name="name" value="<%= recipe.name %> ">
                     </div>
                     <div>
-                        <label for="cuisine-input" class="form-label">Cuisine</label>
+                        <label style="font-size:16px;" for="cuisine-input" class="form-label">Cuisine</label>
                         <input type="text" class="form-control" id="name-input" name="cuisine"
                             value="<%= recipe.cuisine %>">
                     </div>
                     <div>
-                        <label for="difficulty-input">Difficulty:</label>
+                        <label style="font-size:16px;" for="difficulty-input">Difficulty:</label>
                         <select name="difficulty" id>
                             <option value="Jamie Oliver (Easy)">Jamie Oliver(Easy)</option>
                             <option value="Guy Fieri (Medium)">Guy Fieri(Medium)</option>
@@ -28,11 +28,11 @@
                         </select>
                     </div>
                     <div>
-                        <label for="ingredients-input" class="form-label">Ingredients</label>
+                        <label style="font-size:16px;" for="ingredients-input" class="form-label">Ingredients</label>
                         <input type="text" class="form-control" id="ingredients-input" name="ingredients"
                             value="<%= recipe.ingredients %>">
                     </div>
-                    <button type="submit" class="">Update</button>
+                    <button class="btn btn-primary" type="submit" class="">Update</button>
                 </form>
             </div>
         </main>

@@ -1,6 +1,6 @@
 Title: Chef's Corner (Project Food Book)
 
-Getting Started:
+Getting Started: https://project-food-book.herokuapp.com/
 
 Instructions: Login using your Google account, and start adding recipes to your cookbook! You can add notes, and identify recipe preparation difficulty with an easy-to-read drop down menu named for some of the best chefs in the world.
 

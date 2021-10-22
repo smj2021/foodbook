@@ -1,19 +1,23 @@
 <%- include('./../partials/html-head') %>
     <%- include('./../partials/nav') %>
-
-        <main>
+        <header>
             <h1>
-                <% title %>
+                Edit Note
             </h1>
-            <div class="addnote">
-                <form class="container" action="/notes/<%= note._id %>/<%= recipeId %>?_method=PUT" method="POST">
-                    <div>
-                        <label for="content-input" class="form-label">Content</label>
-                        <textarea type="text" class="form-control" id="content-input" name="content"
-                            placeholder="Edit your note here" value="<%= note.content %> "></textarea>
-                        
-                            <button type="submit">Update</button>
-                    
+        </header>
+        <main class="mx-auto">
+            <div class="container">
+                <form class="form-horizontal" action="/notes/<%= note._id %>/<%= recipeId %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label for="content-input" class="control-label col-md-12"
+                            style="font-size:16px;">Content</label>
+                        <div class="col-md-40">
+                            <textarea type="text" class="form-control" id="content-input" name="content"
+                                placeholder="Edit your note here" value="<%= note.content %> "></textarea>
+                        </div>
+                        <div class="col text-center">
+                            <button style="text-align: center;" class="btn btn-primary" type="submit">Update</button>
+                        </div>
                     </div>
                 </form>
             </div>

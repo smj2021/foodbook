@@ -38,7 +38,6 @@ function edit(req, res) {
 function update(req, res) {
     Note.findByIdAndUpdate(req.params.id, req.body, { new: true })
         .then(function (note) {
-            console.log(note)
             res.redirect(`/recipes/${req.params.recipeId}`)
         })
         .catch(function (error) {
@@ -53,7 +52,6 @@ function update(req, res) {
 function delNote(req, res) {
     Note.findByIdAndDelete(req.params.id)
         .then(function (note) {
-            console.log(note)
             res.redirect(`/recipes/${req.params.recipeId}`)
         })
         .catch(function (err) {

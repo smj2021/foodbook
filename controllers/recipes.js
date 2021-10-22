@@ -14,9 +14,7 @@ function newRecipe(req, res) {
 
 //Sumbits the new recipe to the database.
 function create(req, res) {
-    console.log(req.body)
     Recipe.create(req.body, function (err, recipe) {
-        console.log(recipe)
         res.redirect('/recipes')
     })
 }
@@ -34,32 +32,27 @@ function index(req, res) {
 
 //Renders individual recipe characteristics.
 function show(req, res) {
-    Recipe.findById(req.params.id).populate('notes').exec(function (err, recipe) {
-        Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
-            if (err) {
-                console.log(err)
-            }
-            res.render('recipes/show', {
-                title: "Chef's Secrets!",
-                recipe,
-                notes: notes,
+    Recipe.findById(req.params.id)
+        .populate('notes')
+        .exec(function (err, recipe) {
+            Note.find({ _id: { $nin: recipe.notes } }, function (err, notes) {
+                res.render('recipes/show', {
+                    title: "Chef's Secrets!",
+                    recipe,
+                    notes: notes,
+                })
             })
         })
-    })
 }
 
 //Enables user to add notes or instructions to an individual recipe.
 function addNote(req, res) {
-    console.log(req.body) //remove before deploy
-    console.log(req.params.id) //remove before deploy
     Recipe.findById(req.params.id, function (err, recipe) {
         Note.create({
             content: req.body.note,
         }, function (err, note) {
-            console.log('note:', note) //remove before deploy
             recipe.notes.push(note._id)
             recipe.save(function (err) {
-                console.log('err', err) //remove before deploy
                 res.redirect(`/recipes/${recipe._id}`)
             })
         })
@@ -100,7 +93,7 @@ function delRecipe(req, res) {
             res.redirect('/recipes')
         })
         .catch(function (err) {
-            comsole.log(err)
+            console.log(err)
             res.redirect('/')
         })
 }
